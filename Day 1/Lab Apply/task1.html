@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video id="video" src="frozen.mp4"></video>
+    <br>
+    
+    <input id="slider" type="range" min="0" max="1" step="0.01" value="0">
+    <span id="time"></span>
+    <br>
+    <input id="play" type="button" value="Play">
+    <input id="stop" type="button" value="Stop">
+    <input id="pp" type="button" value="<<">
+    <input id="p"type="button" value="<">
+    <input id="n" type="button" value=">">
+    <input id="nn" type="button" value=">>">
+    <input id="volume" type="range" min="0" max="1" step="0.1" value="0.1">
+    <input id="mute" type="button" value="Unmute">
+    <br>
+    Speed
+    <input id="speed" type="range" min="1" max="16" step="1" value="1">
+    <span id="speedx">1x</span>
+
+    <script>
+        var video = document.getElementById("video");
+        video.muted = true;
+        video.volume = 0.1;
+
+        document.getElementById('play').onclick = function (){
+            video.play();
+        };
+
+        document.getElementById("stop").onclick = function () {
+            video.pause();
+        };
+
+        document.getElementById("pp").onclick = function () { shift(-10); };
+        document.getElementById("p").onclick = function () { shift(-5); };
+        document.getElementById("n").onclick = function () { shift(5); };
+        document.getElementById("nn").onclick = function () { shift(10); };
+        var s = ["Mute", "Unmute"];
+        var volume = document.getElementById("volume");
+        var slider = document.getElementById('slider');
+
+        document.getElementById("mute").onclick = function() { 
+            video.muted = !video.muted; 
+            this.value = s[+video.muted];
+        };
+        function shift(by)
+        {
+            video.currentTime += by;
+        }
+        document.getElementById("slider").addEventListener("input", function()
+        {
+            video.currentTime = slider.value * video.duration;
+        })
+        document.getElementById("volume").addEventListener("input", function()
+        {
+            video.volume = volume.value;
+        })
+        document.getElementById("speed").addEventListener("input", function ()
+        {
+            video.playbackRate = this.value;
+            document.getElementById("speedx").innerText = this.value + "x";
+        })
+        function timeFormat(seconds) {
+            seconds = Math.floor(seconds);
+            let m = Math.floor(seconds / 60);
+            let s = seconds % 60;
+            return `${m}:${s < 10 ? "0" + s : s}`;
+        }
+        video.ontimeupdate = function ()
+        {
+            document.getElementById('time').innerText = timeFormat(video.currentTime) + "/" + timeFormat(video.duration);
+            slider.value = video.currentTime / video.duration;
+        }
+
+    </script>
+</body>
+</html>

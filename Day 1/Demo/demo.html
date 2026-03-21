@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [data-color]{
+            color: red;
+        }
+
+        [data-color='yellow']{
+            color: yellow;
+        }
+        /*
+        basic selectors(id,class,tag)
+        atttribute selector
+        combinator selectors
+        */
+    </style>
+</head>
+<body>
+    <footer>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque hic a voluptatem magni placeat cum fuga fugiat amet, magnam, aspernatur similique ipsa repellendus itaque totam nihil sit non tenetur natus!</p>
+    </footer>
+    <div>
+        28km,cairo-alexandria road,smart village,giza,egypt,11111
+    </div>
+    <div itemscope itemtype="https://schema.org/Organization">
+        <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="streetAddress">28km,cairo-alexandria road,</span>
+            <span itemprop="addressLocality">smart village,</span>
+            <span itemprop="addressegion">giza,</span>
+            <span itemprop="addressCountry">egypt,</span>
+            <span itemprop="postalCode">11111</span>
+        </span>
+    </div>
+    <h1 data-color>First Demo</h1>
+    <meter min="0" max="10" value="5"></meter>
+    <meter min="0" max="10" low="3" high="6" value="5"></meter>
+    <meter min="0" max="10" low="3" high="6" value="2"></meter>
+    <meter min="0" max="10" low="3" high="6" value="7"></meter>
+
+    <progress min="0" max="100" value="20"></progress>
+
+
+    <p data-color="yellow">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, eius laudantium. Doloremque magni velit iste adipisci voluptates. Hic amet sit eum molestiae quisquam eligendi rem, praesentium consequuntur voluptate ipsa. Velit.</p>
+    <code>
+        <var>int i</var>=0
+        test += 1
+        <mark>test</mark>
+    </code>
+
+    <details>
+        <summary>HTML</summary>
+        <p>Hypertext markup langaugae</p>
+    </details>
+
+    <form>
+        <input type="email">
+        <input type="color">
+        <input type="file">
+        <input type="range" min="0" max="1" step="0.1" value="1">
+        <input type="date">
+        <input type="text" required pattern="[a-z]{3}" name="usrnm" autocomplete="off" placeholder="Enter your name">
+        <input type="text" readonly value="123" name="usrId" >
+        <input type="text" disabled value="123 street" name="usradd">
+        <input type="submit">
+    </form>
+
+
+
+
+
+
+
+
+
+    <script>
+        // setInterval(function(){
+        //     document.getElementsByTagName('progress')[0].value+=10
+        // },1000)
+
+        document.querySelector('[data-color]').style.color = 'pink'
+    </script>
+</body>
+</html>

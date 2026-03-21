@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500" height="500" id="myCanvas"></canvas>
+    <script>
+        var context =  document.getElementById("myCanvas").getContext('2d');
+        context.beginPath();
+        context.lineWidth = 10
+        context.strokeStyle = "brown"
+        var x = 0, y = 0;
+
+        var id = setInterval(function f()
+        {
+            console.log(x);
+            context.lineTo(++x, ++y);
+            context.stroke();
+            if (x == 500)
+            {
+                alert('animation end');
+                clearInterval(id);   
+            }
+        }, 5)
+    </script>
+</body>
+</html>

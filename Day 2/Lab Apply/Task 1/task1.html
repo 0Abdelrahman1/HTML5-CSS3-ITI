@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    
+    <script> delete window.localStorage; </script> <!-- FOR TESTING PURPOSE  -->
+    
+    <script src="modernizr-custom.js"></script>
+    <script src="Modernizr/ConditionizrLib/Conditionizr.js"></script>
+    <script> 
+        conditionizr.add('local_not_exists', function () { return !Modernizr.localstorage; })
+        conditionizr.polyfill('localStorageLib.js', ['local_not_exists'])
+    </script>
+</head>
+<body>
+
+    <script>
+        window.onload = function ()
+        {
+            localStorage.setItem("usr", "ahmed")
+            localStorage.setItem("age", 20)
+            console.log(localStorage.getItem("usr"));
+        }
+    </script>
+</body>
+</html>
