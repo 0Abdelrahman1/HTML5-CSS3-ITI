@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <script>
+        var context = document.getElementById("myCanvas").getContext('2d');
+        context.fillStyle = 'white';
+        context.fillRect(0, 0, 500, 500);
+        var grd = context.createLinearGradient(0, 0, 0, 500)
+        grd.addColorStop(0, 'skyBlue');
+        grd.addColorStop(0.25, 'skyBlue');
+        grd.addColorStop(0.5, 'white');
+        context.fillStyle = grd;
+        context.fillRect(50, 25, 435, 215);
+        grd = context.createLinearGradient(0, 0, 0, 500)
+        grd.addColorStop(0, 'lawnGreen');
+        grd.addColorStop(0.7, 'lawnGreen');
+        grd.addColorStop(0.9, 'white');
+        context.fillStyle = grd;
+        context.fillRect(50, 260, 435, 215);
+
+        context.beginPath();
+        context.moveTo(170, 300)
+        context.lineTo(170, 200)
+        context.lineTo(370, 200)
+        context.lineTo(370, 300)
+        context.lineWidth = 5
+        context.strokeStyle = 'black'
+        context.stroke();
+
+
+    </script>
+</body>
+</html>

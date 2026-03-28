@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <div style="display:none;">
+        <img src="download.png" width="500" height="500">
+    </div>
+    <script>
+        var context = document.getElementById("myCanvas").getContext('2d');
+        var img = document.images[0];
+        img.addEventListener("load", (e) => {
+                context.drawImage(img, 0, 0, 500, 500);
+                context.shadowColor = 'darkgray'
+                context.shadowOffsetX = 3
+                context.shadowOffsetY = 3
+                context.font = "24px Impact"
+                context.fillStyle = 'Black'
+                context.fillText("Deadlines Everywhereeeeeeeeeeee", 25, 470);
+            });
+    </script>    
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <script>
+        {
+            var context = document.getElementById("myCanvas").getContext('2d');
+            var sx = 350, sy = 250, sr = 10;
+            var grd = context.createRadialGradient(sx, sy, sr, 250, 250, 130);
+            grd.addColorStop(0, "white")
+            grd.addColorStop(1, "blue")
+            context.fillStyle=grd
+            context.arc(250, 250, 130, 0, 2 * Math.PI);
+            context.fill();
+            context.lineWidth = 5
+            context.stroke();
+    
+            context.beginPath();
+            context.arc(250, 250, 100, 0, 2 * Math.PI);
+            context.fill();
+            context.stroke();
+            
+            // context.beginPath();
+            // context.lineWidth = 1
+            // context.arc(sx, sy, sr, 0, 2 * Math.PI);
+            // context.stroke();
+
+            var lrh = 130
+            var lx = 240, ly = 180
+            var rx = 230, ry = 195
+            context.fillStyle = 'black'
+            context.save();
+            context.translate(lx, ly);
+            context.rotate(Math.PI * 0.2)
+            context.translate(-lx, -ly);
+            context.fillRect(lx, ly, 20, lrh);
+            
+            context.restore()
+            context.save();
+            context.translate(rx, ry);
+            context.rotate(Math.PI * -0.26)
+            context.translate(-rx, -ry);
+            context.fillRect(rx, ry, 20, lrh);
+            
+            context.restore()
+            context.fillRect(200, 235, 100, 20);
+            
+        }
+
+        // {
+        //     var canvas = document.getElementById("myCanvas");
+        //     var context = canvas.getContext('2d');
+
+        //     // Radial Gradient for N Logo
+        //     var sx = 250, sy = 250, sr = 40;
+        //     var grd = context.createRadialGradient(sx, sy, sr, 250, 250, 140);
+        //     grd.addColorStop(0, "#6B7FD6");      // light blue center
+        //     grd.addColorStop(0.5, "#4560B8");    // medium blue
+        //     grd.addColorStop(1, "#1E3A8A");      // dark blue edges
+            
+        //     context.fillStyle = grd;
+            
+        //     // Draw oval using arc with scale (no ellipse)
+        //     context.save();
+        //     context.translate(250, 250);
+        //     context.scale(1, 1.23);  // stretch vertically for oval
+        //     context.beginPath();
+        //     context.arc(0, 0, 130, 0, 2 * Math.PI);
+        //     context.fill();
+        //     context.restore();
+            
+        //     // White "N" letter
+        //     context.fillStyle = "white";
+        //     context.font = "bold 140pt Arial";
+        //     context.textAlign = "center";
+        //     context.textBaseline = "middle";
+        //     context.fillText("N", 250, 250);
+
+        // }
+
+    </script>
+</body>
+</html>
