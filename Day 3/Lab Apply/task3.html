@@ -15,25 +15,37 @@
     <script>
         {
             var context = document.getElementById("myCanvas").getContext('2d');
-            var sx = 350, sy = 250, sr = 10;
+            var sx = 270, sy = 230, sr = 100;
             var grd = context.createRadialGradient(sx, sy, sr, 250, 250, 130);
-            grd.addColorStop(0, "white")
-            grd.addColorStop(1, "blue")
+            grd.addColorStop(0, "lightblue")
+            grd.addColorStop(1, "darkblue")
             context.fillStyle=grd
             context.arc(250, 250, 130, 0, 2 * Math.PI);
             context.fill();
             context.lineWidth = 5
-            context.stroke();
-    
-            context.beginPath();
-            context.arc(250, 250, 100, 0, 2 * Math.PI);
-            context.fill();
-            context.stroke();
+            // context.stroke();
             
             // context.beginPath();
             // context.lineWidth = 1
             // context.arc(sx, sy, sr, 0, 2 * Math.PI);
             // context.stroke();
+            
+            var sx = 335, sy = 270, sr = 10;
+            var grd = context.createRadialGradient(sx, sy, sr, 250, 250, 100);
+            context.beginPath();
+            grd.addColorStop(0, "white")
+            grd.addColorStop(1, "blue")
+            context.fillStyle=grd
+            context.lineWidth = 5
+            context.arc(250, 250, 100, 0, 2 * Math.PI);
+            context.fill();
+            // context.stroke();
+
+            // context.beginPath();
+            // context.lineWidth = 1
+            // context.arc(sx, sy, sr, 0, 2 * Math.PI);
+            // context.stroke();
+            
 
             var lrh = 130
             var lx = 240, ly = 180

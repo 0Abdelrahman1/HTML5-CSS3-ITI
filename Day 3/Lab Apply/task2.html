@@ -17,26 +17,36 @@
         context.fillStyle = 'white';
         context.fillRect(0, 0, 500, 500);
         var grd = context.createLinearGradient(0, 0, 0, 500)
-        grd.addColorStop(0, 'skyBlue');
-        grd.addColorStop(0.25, 'skyBlue');
+        grd.addColorStop(0.2, 'skyBlue');
         grd.addColorStop(0.5, 'white');
         context.fillStyle = grd;
         context.fillRect(50, 25, 435, 215);
         grd = context.createLinearGradient(0, 0, 0, 500)
-        grd.addColorStop(0, 'lawnGreen');
-        grd.addColorStop(0.7, 'lawnGreen');
+        grd.addColorStop(0.65, 'lawnGreen');
         grd.addColorStop(0.9, 'white');
         context.fillStyle = grd;
         context.fillRect(50, 260, 435, 215);
-
+        
         context.beginPath();
+        var grd = context.createLinearGradient(170, 300, 170, 200)
+        grd.addColorStop(0, 'white');
+        grd.addColorStop(0.2, 'black');
         context.moveTo(170, 300)
         context.lineTo(170, 200)
-        context.lineTo(370, 200)
-        context.lineTo(370, 300)
+        context.strokeStyle = grd;
         context.lineWidth = 5
-        context.strokeStyle = 'black'
         context.stroke();
+
+        context.lineTo(370, 200)
+
+        var grd = context.createLinearGradient(370, 200, 370, 300)
+        grd.addColorStop(0.8, 'black');
+        grd.addColorStop(1, 'white');
+        context.lineTo(370, 300)
+        context.strokeStyle = grd
+        context.lineWidth = 5
+        context.stroke();
+
 
 
     </script>

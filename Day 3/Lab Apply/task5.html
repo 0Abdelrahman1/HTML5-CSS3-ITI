@@ -14,10 +14,10 @@
     <canvas id="myCanvas" width="500" height="500"></canvas>
     <script>
         var context = document.getElementById("myCanvas").getContext('2d');
-        context.save();
         for (let i = 0; i < 3; i++)
             for (let j = 0; j < 3; j++)
             {
+                context.save();
                 context.translate(100 * i + 125, 100 * j + 125)
                 context.lineWidth = 5
                 context.beginPath()
@@ -29,7 +29,6 @@
                 context.closePath();
                 context.stroke();
                 context.restore();
-                context.save();
             }
     </script>
 </body>
