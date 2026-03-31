@@ -24,3 +24,6 @@ Day */**
 
 *.mp4
 
+# ignore .pdfs
+*.pdf
+
